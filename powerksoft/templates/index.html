@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html en>
+    <head>
+        <title>NOM DE LA BANQUE</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <div style="display: inline-block; position: relative; right: 100%;">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="logo de la banque" style="width: 200px; height: 150px;">
+            </div>
+            <div style="display: inline-block; position: relative; left: 90%; top: -50%;">
+                <label>J'ai deja un compte</label>
+                <button class="bouton" onclick="afformconnexion()">Se connecter</button>
+            </div>
+        </header>
+        <div style="position: relative; top: -10%;"><center><h1>NOM DE LA BANQUE</h1></center></div>
+        <div class="modal" style="position: relative; top: -10%;">
+            <div class="leftside">
+                <button id="bouton-inscription" onclick="afforminscription()">S'inscrire</button>
+                <div class="formulaire-inscription" id="forminscription">
+                    <h2>Inscription</h2>
+                    <form action="/inscription" method="POST">
+                        <label for="nomins">Nom: </label>
+                        <input type="text" id="nomins" name="nomins" required><br><br>
+                        <label for="motdepasse">Mot de passe: </label>
+                        <input type="password" name="motdepasseins" id="motdepasseins" required><br><br>
+                        <label for="cmotdepasseins">Confirmer: </label>
+                        <input type="password" name="cmotdepasseins" id="cmotdepasseins" required><br><br>
+            
+                        <input type="submit" value="S'inscrire" name="inscription-form", class="bouton">
+                    </form>
+                </div>
+            </div>
+            <div class="rightside">
+                <button id="bouton-connexion" onclick="afformconnexion()">Se connecter</button>
+                <div class="formulaire-connexion" id="formconnexion">
+                    <h2>Connexion</h2>
+                    <form action="/connexion" method="POST">
+                        <label for="nomcon">Nom: </label>
+                        <input type="text" id="nomcon" name="nomcon" required><br><br>
+                        <label for="motdepassecon">Mot de passe: </label>
+                        <input type="password" name="motdepassecon" id="motdepassecon" required><br><br>
+        
+                        <input type="submit" value="Se connecter" name="connexion-form", class="bouton">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
